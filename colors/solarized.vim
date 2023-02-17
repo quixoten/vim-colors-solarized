@@ -135,7 +135,7 @@
 " environment.
 
 " Some terminals support RGB color
-if s:use_guicolors || (exists("&termguicolors") && &termguicolors)
+if has("gui_running") || exists("&termguicolors") && &termguicolors
   let s:use_guicolors = 1
 else
   let s:use_guicolors = 0
