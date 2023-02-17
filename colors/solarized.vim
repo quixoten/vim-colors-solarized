@@ -97,6 +97,7 @@
 "
 " SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      sRGB        HSB
 " --------- ------- ---- -------  ----------- ---------- ----------- -----------
+" base04    #02262f               232 #080808
 " base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
 " base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
 " base01    #586e75 10/7 brgreen  240 #4e4e4e 45 -07 -07  88 110 117 194  25  46
@@ -249,6 +250,7 @@ let colors_name = "solarized"
 " neutral gray monotone palette component)
 if (s:use_guicolors && g:solarized_degrade == 0)
     let s:vmode       = "gui"
+    let s:base04      = "#02262f"
     let s:base03      = "#002b36"
     let s:base02      = "#073642"
     let s:base01      = "#586e75"
@@ -271,6 +273,7 @@ elseif (s:use_guicolors && g:solarized_degrade == 1)
     " while in gui mode via "let g:solarized_degrade=1", though this is not
     " recommened and is for testing only.
     let s:vmode       = "gui"
+    let s:base04      = "#080808"
     let s:base03      = "#1c1c1c"
     let s:base02      = "#262626"
     let s:base01      = "#4e4e4e"
@@ -289,6 +292,7 @@ elseif (s:use_guicolors && g:solarized_degrade == 1)
     let s:green       = "#5f8700"
 elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:vmode       = "cterm"
+    let s:base04      = "16"
     let s:base03      = "8"
     let s:base02      = "0"
     let s:base01      = "10"
@@ -307,6 +311,7 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:green       = "2"
 elseif g:solarized_termcolors == 256
     let s:vmode       = "cterm"
+    let s:base03      = "232"
     let s:base03      = "234"
     let s:base02      = "235"
     let s:base01      = "239"
@@ -443,6 +448,7 @@ endif
 
 exe "let s:bg_none      = ' ".s:vmode."bg=".s:none   ."'"
 exe "let s:bg_back      = ' ".s:vmode."bg=".s:back   ."'"
+exe "let s:bg_base04    = ' ".s:vmode."bg=".s:base04 ."'"
 exe "let s:bg_base03    = ' ".s:vmode."bg=".s:base03 ."'"
 exe "let s:bg_base02    = ' ".s:vmode."bg=".s:base02 ."'"
 exe "let s:bg_base01    = ' ".s:vmode."bg=".s:base01 ."'"
@@ -462,6 +468,7 @@ exe "let s:bg_cyan      = ' ".s:vmode."bg=".s:cyan   ."'"
 
 exe "let s:fg_none      = ' ".s:vmode."fg=".s:none   ."'"
 exe "let s:fg_back      = ' ".s:vmode."fg=".s:back   ."'"
+exe "let s:fg_base04    = ' ".s:vmode."fg=".s:base04 ."'"
 exe "let s:fg_base03    = ' ".s:vmode."fg=".s:base03 ."'"
 exe "let s:fg_base02    = ' ".s:vmode."fg=".s:base02 ."'"
 exe "let s:fg_base01    = ' ".s:vmode."fg=".s:base01 ."'"
@@ -784,9 +791,9 @@ exe "hi! perlStatementFileDesc" .s:fg_cyan   .s:bg_back   .s:fmt_none
 "}}}
 " nvim-tree highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! NvimTreeNormal"       ." ".s:vmode."bg=#02262f"
+exe "hi! NvimTreeNormal"       .s:bg_base04
 exe "hi! NvimTreeCursorLine"   .s:bg_base02
-exe "hi! NvimTreeWinSeparator" ." ".s:vmode."bg=#02262f" ." ".s:vmode."fg=#02262f"
+exe "hi! NvimTreeWinSeparator" .s:bg_base04 .s:fg_base04
 "}}}
 " which-key highlighting "{{{
 " ---------------------------------------------------------------------
