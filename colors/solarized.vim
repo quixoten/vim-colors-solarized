@@ -784,8 +784,9 @@ exe "hi! perlStatementFileDesc" .s:fg_cyan   .s:bg_back   .s:fmt_none
 "}}}
 " nvim-tree highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! NvimTreeNormal"       .s:bg_back
-exe "hi! NvimTreeWinSeparator" .s:bg_back .s:fg_back
+exe "hi! NvimTreeNormal"       ." ".s:vmode."bg=#02262f"
+exe "hi! NvimTreeCursorLine"   .s:bg_base02
+exe "hi! NvimTreeWinSeparator" ." ".s:vmode."bg=#02262f" ." ".s:vmode."fg=#02262f"
 "}}}
 " which-key highlighting "{{{
 " ---------------------------------------------------------------------
