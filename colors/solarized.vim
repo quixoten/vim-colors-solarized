@@ -134,6 +134,13 @@
 " Allow or disallow certain features based on current terminal emulator or 
 " environment.
 
+" Some terminals support RGB color
+if s:use_guicolors || (exists("&termguicolors") && &termguicolors)
+  let s:use_guicolors = 1
+else
+  let s:use_guicolors = 0
+endif
+
 " Terminals that support italics
 let s:terms_italic=[
             \"rxvt",
@@ -154,13 +161,6 @@ else
             let s:terminal_italic=1
         endif
     endfor
-endif
-
-" Some terminals support RGB color
-if s:use_guicolors || (exists("&termguicolors") && &termguicolors)
-  let s:use_guicolors = 1
-else
-  let s:use_guicolors = 0
 endif
 
 " }}}
