@@ -551,6 +551,7 @@ endif
 " exe compiled formats
 
 exe "hi! Normal"         .s:fmt_none   .s:fg_base0  .s:bg_back
+exe "hi! NormalFloat"    .s:fmt_none   .s:fg_base0  .s:bg_base02
 
 exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 "       *Comment         any comment
@@ -795,14 +796,9 @@ exe "hi! NvimTreeNormal"       .s:bg_base04
 exe "hi! NvimTreeCursorLine"   .s:bg_base02
 exe "hi! NvimTreeWinSeparator" .s:bg_base04 .s:fg_base04
 "}}}
-" which-key highlighting "{{{
+" lazy.nvim highlighting "{{{
 " ---------------------------------------------------------------------
-exe "hi! WhichKey"          .s:fg_cyan
-exe "hi! WhichKeyGroup"     .s:fg_blue
-exe "hi! WhichKeyDesc"      .s:fg_magenta
-exe "hi! WhichKeySeperator" .s:fg_base01
-exe "hi! WhichKeyFloat"     .s:bg_base02
-exe "hi! WhichKeyValue"     .s:fg_base3
+exe "hi! LazyButton"        .s:bg_base03
 "}}}
 " tex highlighting "{{{
 " ---------------------------------------------------------------------
